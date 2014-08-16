@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>My GMaps Test</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+	<link href="css/gmaps.css" rel="stylesheet">
+	<link href="css/jquery-ui-1.10.4.css" rel="stylesheet">
+	<script src="js/jquery-1.11.0.min.js"></script>	
+	<script src="js/jquery-ui-1.10.4.js"></script>			
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHRx8OVuqnXcG8qtKAA37kgvXQIafYf28&libraries=places"></script>
+    <script src="js/gmaps.js"></script>	
+     <script src="js/map_styles.js"></script>			
+ </head>
+
+<body>
+  <div id="main">
+  
+	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+	<button id="add_marker" class="controls">Add marker at current position !</button>
+	<label id="xtra_info" class="controls">blank</label>
+
+    <div id="map-canvas"></div>
+	<br>
+ 
+		
+
+	<div id="tabs">
+	  <ul>
+	    <li><a href="#tabs-1">Map Details</a></li>
+	    <li><a href="#tabs-2">Jump to Location</a></li>
+	    <li><a href="#tabs-3">Map Routes</a></li>
+	    <li><a href="#tabs-4">Tilt</a></li>
+	    <li><a href="#tabs-5">Map Styles</a></li>
+	  </ul>
+	  <div id="tabs-1">
+		    Location : <label id="clocation"></label>&nbsp;&nbsp;<button id="get_location">Get Location !</button><br>
+			Latitude : <label id="clat"></label><br>
+			Longitude : <label id="clong"></label><br>
+			
+			Projection : <label id="cproj"></label><br>
+			Map Type : &nbsp;
+			 <select id="maptypeid_select">
+			      <option value="roadmap">ROADMAP</option>
+			      <option value="satellite">SATELLITE</option>
+			      <option value="terrain">TERRAIN</option>
+			      <option value="hybrid">HYBRID</option>
+			 </select>
+			<br>
+			<div id="custom_zoom">Zoom level : <label for="slider-vertical" type="text" id="czoom"></label></div>
+			<div id="slider-vertical"></div>
+	  </div>
+	  <div id="tabs-2">
+	  		<h3>Geocoding API</h3>
+
+		    Place : <input type="text" id="address" placeholder="Any place..."><br>
+			<button id="find_by_address">Geocode !</button><br>
+			<hr><br>
+			Latitude : <input type="text" id="x" placeholder="-90 to +90"><br>
+			Longitude : <input type="text" id="y" placeholder="-180 to +180"><br>
+			<button id="find_by_latlong">Locate !</button>
+	  </div>
+	  <div id="tabs-3">
+		  <h3>Directions API</h3>
+	   		<label>Start : </label><input type="text" id="startp" placeholder="Starting point">
+	   		<image id="startm" src="images/marker.png" width="15px" height="25px" title="Mark Starting Point on the Map"><br>
+	   		<label>End : </label><input type="text" id="endp" placeholder="End point">
+			<image id="endm" src="images/marker.png" width="15px" height="25px" title="Mark End Point on the Map"><br>
+			<div id="panel">
+			   <b>Mode of Travel: </b>
+			    <select id="dmode">
+			      <option value="DRIVING">Driving</option>
+			      <option value="WALKING">Walking</option>
+			      <option value="BICYCLING">Bicycling</option>
+			      <option value="TRANSIT">Transit</option>
+			    </select>
+		    </div>
+		    <br>
+	   		<button id="get_direction">Get Direction !</button><br>
+	   		<br><br>
+	   		<div id="directions-panel"></div>   
+	  </div>
+	   <div id="tabs-4">
+	   		<p>Tilt can be observed in only particular places ...</p>
+	   		<button id="goto_cmu" title="Click Me !">Goto CMU !!!</button><br>
+			<p id="tilt_change">
+				Tilt : 
+				<!-- <div id="tilt_radio"> -->
+					<input type="radio" name="ctilt" value="tilt0" id="tilt0"><label for="tilt0">0</label>
+					<input type="radio" name="ctilt" value="tilt45" id="tilt45"><label for="tilt45">45</label>
+				<!-- </div> -->
+			</p>
+	   		
+	  </div>
+	  <div id="tabs-5">
+	  		<div id="map_style_radio">
+	  				<input type="radio" name="m_style" value="Default" id="Default" checked>
+					<label for="Default">Default</label>
+					<input type="radio" name="m_style" value="Subtle_Grayscale" id="Subtle_Grayscale">
+					<label for="Subtle_Grayscale">Subtle Grayscale</label>
+					<input type="radio" name="m_style" value="Pale_Dawn" id="Pale_Dawn">
+					<label for="Pale_Dawn">Pale Dawn</label>
+					<input type="radio" name="m_style" value="Blue_water" id="Blue_water">
+					<label for="Blue_water">Blue water</label>
+			</div>
+	  </div>
+	</div>
+
+
+	<div id="marker_title_dialouge" title="Marker Title Dialouge Box">
+	  <p>
+	    Enter the title of the marker ->
+	  </p>
+	  <input id="marker_title" type="text" value="Blank Title">
+	</div>
+
+ </div>	
+</body>
+</html>
